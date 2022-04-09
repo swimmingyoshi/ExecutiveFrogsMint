@@ -70,7 +70,7 @@ const ConnectButton = styled(WalletMultiButton)`
 `;
 
 const NFT = styled(Paper)`
-  min-width: 400px;
+  min-width: 200px;
   padding: 5px 20px 20px 20px;
   flex: 1 1 auto;
   background-color: var(--card-background-color) !important;
@@ -203,8 +203,9 @@ const Price = styled(Chip)`
 `;
 
 const Image = styled.img`
-  height: 400px;
-  width: auto;
+  height: auto;
+  width: 100%;
+  max-width: 400px;
   border-radius: 7px;
   box-shadow: 5px 5px 40px 5px rgba(0,0,0,0.5);
 `;
@@ -480,46 +481,46 @@ const Home = (props: HomeProps) => {
 
     return (
         <main>
-            <MainContainer>
+            <div className="banner">
                 <WalletContainer>
-                    <Logo><a href="http://localhost:3000/" target="_blank" rel="noopener noreferrer"><img alt=""
-                                                                                                          src="logo.png"/></a></Logo>
+                    <Logo className="hide"><a href="http://localhost:3000/" target="_blank" rel="noopener noreferrer"><img alt=""
+                        src="twitter.svg" /></a></Logo>
                     <Menu>
-                        <li><a href="http://localhost:3000/" target="_blank" rel="noopener noreferrer">Menu 1</a>
-                        </li>
-                        <li><a href="http://localhost:3000/" target="_blank"
-                               rel="noopener noreferrer">Menu 2</a></li>
-                        <li><a href="http://localhost:3000/" target="_blank"
-                               rel="noopener noreferrer">Menu 3</a></li>
+
                     </Menu>
+
+                    <Logo className="hide"><a href="http://localhost:3000/" target="_blank" rel="noopener noreferrer"><img alt=""
+                        src="discord.svg" /></a></Logo>
+
+                </WalletContainer>
+</div>
+                <br />
+            <MainContainer >
                     <Wallet>
                         {wallet ?
-                            <WalletAmount>{(balance || 0).toLocaleString()} SOL<ConnectButton/></WalletAmount> :
+                            <WalletAmount>{(balance || 0).toLocaleString()} SOL<ConnectButton /></WalletAmount> :
                             <ConnectButton>Connect Wallet</ConnectButton>}
                     </Wallet>
-                </WalletContainer>
-                <ShimmerTitle>MINT IS LIVE !</ShimmerTitle>
-                <br/>
-
+                    {wallet && isActive && whitelistEnabled && (whitelistTokenBalance > 0) &&
+                        <h3>You have {whitelistTokenBalance} whitelist mint(s) remaining.</h3>}
+                    {wallet && isActive &&
+                        /* <p>Total Minted : {100 - (itemsRemaining * 100 / itemsAvailable)}%</p>}*/
+                        <h3>TOTAL MINTED : {itemsRedeemed} / {itemsAvailable}</h3>}
+                    {wallet && isActive && <BorderLinearProgress variant="determinate"
+                        value={100 - (itemsRemaining * 100 / itemsAvailable)} />}
+                    <br /> 
 
                 <MintContainer>
                     <DesContainer>
                         <NFT elevation={3}>
-                            <h2>My NFT</h2>
+                            
                             <br/>
                             <div><Price
                                 label={isActive && whitelistEnabled && (whitelistTokenBalance > 0) ? (whitelistPrice + " " + priceLabel) : (price + " " + priceLabel)}/><Image
-                                src="cool-cats.gif"
+                                src="frogif.gif"
                                 alt="NFT To Mint"/></div>
                             <br/>
-                            {wallet && isActive && whitelistEnabled && (whitelistTokenBalance > 0) &&
-                              <h3>You have {whitelistTokenBalance} whitelist mint(s) remaining.</h3>}
-                            {wallet && isActive &&
-                                /* <p>Total Minted : {100 - (itemsRemaining * 100 / itemsAvailable)}%</p>}*/
-                              <h3>TOTAL MINTED : {itemsRedeemed} / {itemsAvailable}</h3>}
-                            {wallet && isActive && <BorderLinearProgress variant="determinate"
-                                                                         value={100 - (itemsRemaining * 100 / itemsAvailable)}/>}
-                            <br/>
+                            
                             <MintButtonContainer>
                                 {!isActive && candyMachine?.state.goLiveDate ? (
                                     <Countdown
@@ -577,35 +578,7 @@ const Home = (props: HomeProps) => {
                                 Explorer</SolExplorerLink>}
                         </NFT>
                     </DesContainer>
-                    <DesContainer>
-                        <Des elevation={2}>
-                            <LogoAligner><img src="logo.png" alt=""></img><GoldTitle>TITLE 1</GoldTitle></LogoAligner>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt.</p>
-                        </Des>
-                        <Des elevation={2}>
-                            <LogoAligner><img src="logo.png" alt=""></img><GoldTitle>TITLE 2</GoldTitle></LogoAligner>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt.</p>
-                        </Des>
-                        <Des elevation={2}>
-                            <LogoAligner><img src="logo.png" alt=""></img><GoldTitle>TITLE 3</GoldTitle></LogoAligner>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt.</p>
-                        </Des>
-                    </DesContainer>
+                    
                 </MintContainer>
             </MainContainer>
             <Snackbar

@@ -36,13 +36,7 @@ Vercel will automatically deploy new prod packages for each new commit.
 
 ### Installation
 
-#### 1. Fork the project & clone it. Example:
-
-```
-git clone https://github.com/Fulgurus/candy-machine-v2-responsive-ui.git
-```
-
-#### 2. Define your environment variables (.env file)
+### Define your environment variables (.env file)
 
 Rename the `.env.example` file at the root directory to `.env` and update the following variables in the `.env` file:
 
@@ -81,7 +75,7 @@ Spl-token decimals were defined during its creation with --decimals parameter. I
 
 More info about it there : https://spl.solana.com/token
 
-#### 3. Build the project and test. Go to the root project directory and type the commands :
+#### Build the project and test. Go to the root project directory and type the commands :
 
 To install dependencies :
 
@@ -101,9 +95,9 @@ To build the production package (generated in build folder of the project) :
 yarn build
 ```
 
-#### 4. Customize the website UI :
+#### Customize the website UI :
 
-##### 4.1 `App.css` : update 5 main CSS variables with your custom colors :
+##### `App.css` : update 5 main CSS variables with your custom colors :
 
 ```
 :root {
@@ -115,12 +109,12 @@ yarn build
 }
 ```
 
-##### 4.2 `public` folder :
+##### `public` folder :
 
 - Update existing demo cool cats images (cool-cats.gif, logo.png) with your owns images in project `public` folder. Make sure to name them identically.
 - Add your custom website title in `index.html` : `<title>Mint Page</title>`
 
-##### 4.3 `Home.tsx` :
+#####  `Home.tsx` :
 
 Scroll down down to line 380 (`return <main> [...]`) and start to update all titles/menu/text/images/text... as wished in the whole React HTML block.
 
