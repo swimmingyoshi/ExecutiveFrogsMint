@@ -75,11 +75,9 @@ const NFT = styled(Paper)`
   flex: 1 1 auto;
   background-color: var(--card-background-color) !important;
 
-`;
-const Des = styled(NFT)`
-  text-align: left;
-  padding-top: 0px;
-`;
+`
+
+
 
 const Card = styled(Paper)`
   display: inline-block;
@@ -227,7 +225,7 @@ const BorderLinearProgress = styled(LinearProgress)`
     background-image: linear-gradient(270deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.5));
   }
 `;
-
+// eslint-disable-next-line
 const ShimmerTitle = styled.h1`
   margin: 50px auto;
   text-transform: uppercase;
@@ -242,11 +240,11 @@ const ShimmerTitle = styled.h1`
     }
   }
 `;
-
+// eslint-disable-next-line
 const GoldTitle = styled.h2`
   color: var(--title-text-color);
 `;
-
+// eslint-disable-next-line
 const LogoAligner = styled.div`
   display: flex;
   align-items: center;
